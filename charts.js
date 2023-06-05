@@ -95,6 +95,7 @@ function buildCharts(sample) {
       y: yticks,
       text: otuLabels.slice(0,10).reverse(),
       type: "bar",
+      orientation: "h"
     }
     ];
 
@@ -109,11 +110,26 @@ function buildCharts(sample) {
     // Deliverable 1: 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar",barData,barLayout);
     // Deliverable 2: 1. Create the trace for the bubble chart.
-
+    var bubbleData = [{
+      x: otu_ids,
+      y: sample_values,
+      mode: "markers",
+      type: "bubble",
+      text: otu_labels,
+      colorscale: "Earth",
+      marker: {
+        size: sample_values,
+        color: otu_ids
+      }
+    }]
     // Deliverable 2: 2. Create the layout for the bubble chart.
-
+    var bubbleLayout = {
+      title: "Bacteria Cultures per Sample",
+      xaxis: {title: "OTU IDs"},
+      hovermode: "closest",
+    };
     // Deliverable 2: 3. Use Plotly to plot the data with the layout.
-    
+    Plotly.newPlot("bubble",bubbleData,bubbleLayout);
     // Deliverable 3: 4. Create the trace for the gauge chart.
     
     // Deliverable 3: 5. Create the layout for the gauge chart.

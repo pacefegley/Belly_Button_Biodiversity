@@ -115,11 +115,11 @@ function buildCharts(sample) {
       y: sampleValues,
       mode: "markers",
       type: "bubble",
-      text: otu_labels,
+      text: otuLabels,
       colorscale: "Earth",
       marker: {
         size: sample_values,
-        color: otu_ids
+        color: otuIds
       }
     }]
     // Deliverable 2: 2. Create the layout for the bubble chart.
